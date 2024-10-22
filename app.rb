@@ -10,7 +10,7 @@ get("/square/new") do
 end
 
 get("/square/results") do
-  @num = params.fetch("number").to_i
+  @num = params.fetch("number").to_f
   @result = @num * @num
   erb(:square_result)
 end
@@ -20,7 +20,7 @@ get("/square_root/new") do
 end
 
 get("/square_root/results") do
-  @num = params.fetch("number").to_i
+  @num = params.fetch("number").to_f
   @result = Math.sqrt(@num)
   erb(:square_root_result)
 end
@@ -31,11 +31,11 @@ end
 
 get("/payment/results") do
   @apr = params.fetch("apr").to_f
-  @yrs = params.fetch("years").to_f
+  @yrs = params.fetch("years").to_i
   @princi = params.fetch("principal").to_f
 
   r = (@apr / 100.0) / 12.0
-  n = @yrs * 12
+  n = @yrs * 12.0
   p = @princi
   @pay = (r * p) / (1 - ((1 + r)**(-n)))
   erb(:payment_result)

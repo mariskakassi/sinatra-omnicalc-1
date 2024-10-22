@@ -4,7 +4,7 @@
     APR
   </dt>
   <dd>
-    <%= @apr %>
+    <%= format('%<d>0.4f', d: @apr) %>%
   </dd>
 
   <dt>
@@ -18,14 +18,14 @@
     Principal
   </dt>
   <dd>
-    <%= @princi %>
+    $<%= format('%<d>0.2f', d: @princi) %>
   </dd>
 
   <dt>
     Payment
   </dt>
   <dd>
-    <%= @pay %>
+    $<%= format('%<d>0.2f', d: @pay) %>
   </dd>
 </dl>
 <a href="/payment/new">Calculate another payment</a>
